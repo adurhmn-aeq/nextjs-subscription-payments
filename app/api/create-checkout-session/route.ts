@@ -10,6 +10,8 @@ export async function POST(req: Request) {
     // 1. Destructure the price and quantity from the POST body
     const { price, quantity = 1, metadata = {} } = await req.json();
 
+    console.log('cookies', cookies().getAll())
+
     try {
       // 2. Get the user from Supabase auth
       const supabase = createRouteHandlerClient<Database>({cookies});
